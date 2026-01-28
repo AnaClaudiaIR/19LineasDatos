@@ -8,15 +8,16 @@ public class LineasDatos {
         int contarP = 0;
         int contarC = 0;
 
+        //Leer el archivo con el buffered reader
         try (BufferedReader reader = new BufferedReader(new FileReader("datos.txt"))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
-                System.out.println(linea);
-                contarL++;
-                contarC += linea.length();
+                System.out.println(linea); //Imprimir la linea del archivo
+                contarL++; //Sumar a número de líneas
+                contarC += linea.length(); //Contar los caracteres
 
                 if (!linea.trim().isEmpty()) {
-                   String[] palabras = linea.trim().split(" ");
+                   String[] palabras = linea.trim().split(" "); //Por cada espacio, contarlo como una palabra, y sumar 1 al contador
                    contarP += palabras.length;
                 }
             }
